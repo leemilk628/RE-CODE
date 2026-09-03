@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Members.LYG._Scripts.Agents.Player.FSM
 {
-        public class PlayerDashState : ActionablePlayerState
+        public class PlayerDashState : AbstractPlayerState
         {
                 private Vector2 _direction;
                 private bool _endDash = false;

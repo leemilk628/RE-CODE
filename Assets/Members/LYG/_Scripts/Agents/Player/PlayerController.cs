@@ -1,5 +1,4 @@
 ﻿using DevLib.FsmSystem.Runtime;
-using Members.LYG._Scripts.Agents.Interactions;
 using Members.LYG._Scripts.Agents.Interactions.Player;
 using Members.LYG._Scripts.Agents.Player.FSM;
 using Members.LYG._Scripts.Input;

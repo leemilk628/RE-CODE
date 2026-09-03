@@ -1,13 +1,9 @@
 ﻿using System;
+using Members.LYG._Scripts.Agents.Player;
 using UnityEngine;
 
 namespace Members.LYG._Scripts.Agents
 {
-        public enum SpeedType
-        {
-                Move,
-                Sprint,
-        }
         public interface IMover
         {
                 event Action<Vector2> OnMoveChanged;

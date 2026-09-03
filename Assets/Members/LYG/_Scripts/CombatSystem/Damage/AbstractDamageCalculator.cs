@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Members.LYG._Scripts.CombatSystem
+namespace Members.LYG._Scripts.CombatSystem.Damage
 {
         public abstract class AbstractDamageCalculator
         {

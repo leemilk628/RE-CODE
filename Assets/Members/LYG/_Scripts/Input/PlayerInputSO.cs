@@ -34,19 +34,16 @@ namespace Members.LYG._Scripts.Input
                 public Vector2 MousePosition
                 {
                         get => _mousePosition;
-                        private set
-                        {
-                                _mousePosition = value;
-                        }
-
+                        private set => _mousePosition = value;
                 }
                 public bool IsSprint
                 {
                         get => _isSprint;
-                        set => _isSprint = value;
+                        private set => _isSprint = value;
                 }
 
                 public event Action<Vector2> OnMoveChanged;
+                public event Action<int, bool> OnSkillHandled;
                 public event Action OnDashHandled;
                 public event Action<bool> OnAttackHandled;
                 public event Action OnInteractHandled;
@@ -83,6 +80,7 @@ namespace Members.LYG._Scripts.Input
                 private void ClearSubscriptions()
                 {
                         OnMoveChanged = null;
+                        OnSkillHandled = null;
                         OnAttackHandled = null;
                         OnInteractHandled = null;
                         OnUseHandled = null;

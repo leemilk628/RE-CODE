@@ -15,12 +15,14 @@ namespace Members.LYG._Scripts.Agents.Player.FSM
                         base.Enter();
                         Player.PlayerInput.OnDashHandled += HandleDashKey;
                         Player.PlayerInput.OnInteractHandled += HandleInteractKey;
+                        Player.PlayerInput.OnAttackHandled += HandleAttackKey;
                 }
 
                 public override void Exit()
                 {
                         Player.PlayerInput.OnDashHandled -= HandleDashKey;
                         Player.PlayerInput.OnInteractHandled -= HandleInteractKey;
+                        Player.PlayerInput.OnAttackHandled -= HandleAttackKey;
                 }
 
                 private void HandleDashKey()
@@ -31,6 +33,10 @@ namespace Members.LYG._Scripts.Agents.Player.FSM
                 private void HandleInteractKey()
                 {
                         Player.Interact.Interact();
+                }
+
+                private void HandleAttackKey(bool obj)
+                {
                 }
         }
 }
