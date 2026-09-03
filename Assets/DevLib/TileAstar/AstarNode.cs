@@ -5,11 +5,11 @@ namespace DevLib.TileAstar
 {
     public class AstarNode : IComparable<AstarNode>
     {
-        public Vector3 worldPosition;
-        public Vector3Int cellPosition;
-        public NodeData nodeData; //나중에 만들 구조체.
+        public Vector3 WorldPosition;
+        public Vector3Int CellPosition;
+        public NodeData NodeData; //나중에 만들 구조체.
         
-        public AstarNode parentNode; //부모 노드
+        public AstarNode ParentNode; //부모 노드
         
         
         public float G;
@@ -38,10 +38,10 @@ namespace DevLib.TileAstar
         public bool Equals(AstarNode node)
         {
             if (node is null) return false;
-            return cellPosition == node.cellPosition; //셀포지션이 같으면 같다고 판단한다.
+            return CellPosition == node.CellPosition; //셀포지션이 같으면 같다고 판단한다.
         }
 
-        public override int GetHashCode() => cellPosition.GetHashCode();
+        public override int GetHashCode() => CellPosition.GetHashCode();
 
         public static bool operator ==(AstarNode lhs, AstarNode rhs)
         {

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Basic Skill Data
   m_EditorClassIdentifier: Assembly-CSharp::Members.LYG._Scripts.CombatSystem.SkillSystem.SkillDataSO
   skillIdHash: 0
-  skillName: 
-  skillDescription: 
-  skillIcon: 
+  skillName: Basic Attack
+  skillDescription: Player Basic Attack
+  skillIcon: {fileID: 0}
   maxSkillLevel: 0
   skillLevel: 0
   skillType: 3

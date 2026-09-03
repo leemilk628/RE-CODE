@@ -1,5 +1,4 @@
-﻿using System;
-using DevLib.SoundSystem.Runtime;
+﻿using DevLib.SoundSystem.Runtime;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -8,7 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace DevLib.SoundSystem.Editor
 {
-    [UnityEditor.CustomEditor(typeof(SoundClipSO))]
+    [CustomEditor(typeof(SoundClipSO))]
     public class SoundClipSOEditor : UnityEditor.Editor
     {
         [SerializeField] private VisualTreeAsset editorView;

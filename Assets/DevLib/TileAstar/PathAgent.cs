@@ -27,7 +27,7 @@ namespace DevLib.TileAstar
         {
             foreach (AstarNode node in _rentedNodes)
             {
-                node.parentNode = null; //참조 순환을 막기 위해서 깨끗하게 밀어버린다.
+                node.ParentNode = null; //참조 순환을 막기 위해서 깨끗하게 밀어버린다.
                 _nodePool.Push(node);
             }
             _rentedNodes.Clear();
@@ -44,10 +44,10 @@ namespace DevLib.TileAstar
                 return (path, false);
 
             AstarNode startAstar = Rent(); //시작 노드 빌려온다.
-            startAstar.nodeData = startNode;
-            startAstar.cellPosition = startNode.cellPosition;
-            startAstar.worldPosition = startNode.worldPosition;
-            startAstar.parentNode = null;
+            startAstar.NodeData = startNode;
+            startAstar.CellPosition = startNode.cellPosition;
+            startAstar.WorldPosition = startNode.worldPosition;
+            startAstar.ParentNode = null;
             startAstar.G = 0;
             startAstar.F = CalcH(startNode.cellPosition, destNode.cellPosition);
             openList.Push(startAstar); //시작점 설정후에 오픈리스트에 넣는다.
@@ -61,20 +61,20 @@ namespace DevLib.TileAstar
                 AstarNode currentNode = openList.Pop(); //가장 작은 값을 가지는 노드를 꺼낸다.
                 
                 //꺼낸 노드가 이미 방문한 closed에 들어간 노드라면 이건 취소
-                if(closedSet.Contains(currentNode.cellPosition))
+                if(closedSet.Contains(currentNode.CellPosition))
                     continue;
 
-                closedSet.Add(currentNode.cellPosition); //현재 노드를 방문처리하고 내려간다.
+                closedSet.Add(currentNode.CellPosition); //현재 노드를 방문처리하고 내려간다.
                 
                 //새로운 노드를 꺼냈더니 그게 목적지인거 즉 도착한거
-                if (currentNode.nodeData == destNode)
+                if (currentNode.NodeData == destNode)
                 {
                     foundNode = currentNode;
                     break;
                 }
                 
                 //주변에 갈 수 있는 노드들을 다 찾아서 OpenList에 넣어줘야 한다.
-                foreach (LinkData link in currentNode.nodeData.neighbors)
+                foreach (LinkData link in currentNode.NodeData.neighbors)
                 {
                     if(closedSet.Contains(link.endCellPosition)) continue;
                     
@@ -84,10 +84,10 @@ namespace DevLib.TileAstar
                     float newG = link.cost + currentNode.G;
 
                     AstarNode nextAstar = Rent();
-                    nextAstar.nodeData = nextNode;
-                    nextAstar.cellPosition = nextNode.cellPosition;
-                    nextAstar.worldPosition = nextNode.worldPosition;
-                    nextAstar.parentNode = currentNode;
+                    nextAstar.NodeData = nextNode;
+                    nextAstar.CellPosition = nextNode.cellPosition;
+                    nextAstar.WorldPosition = nextNode.worldPosition;
+                    nextAstar.ParentNode = currentNode;
                     nextAstar.G = newG;
                     nextAstar.F = newG + CalcH(nextNode.cellPosition, destNode.cellPosition);
                     
@@ -99,7 +99,7 @@ namespace DevLib.TileAstar
                         {
                             existInOpenNode.G = nextAstar.G;
                             existInOpenNode.F = nextAstar.F;
-                            existInOpenNode.parentNode = nextAstar.parentNode;
+                            existInOpenNode.ParentNode = nextAstar.ParentNode;
                             openList.DecreaseKey(existInOpenNode); //우선순위 갱신
                         }
                         ReturnLast(); //현재 nextAstar는 사용되지 않으므로 반납한다.
@@ -117,7 +117,7 @@ namespace DevLib.TileAstar
                 while (node != null)
                 {
                     path.Add(node);
-                    node = node.parentNode;
+                    node = node.ParentNode;
                 }
                 path.Reverse();
             }
@@ -168,18 +168,18 @@ namespace DevLib.TileAstar
 
                 if (isSuccess)
                 {
-                    pointArr[cornerIndex] = list[0].worldPosition; //시작점
+                    pointArr[cornerIndex] = list[0].WorldPosition; //시작점
                     cornerIndex++;
 
                     for (int i = 1; i < list.Count - 1; i++)
                     {
                         if (cornerIndex >= pointArr.Length) break;
 
-                        Vector3Int beforeDir = list[i].cellPosition - list[i - 1].cellPosition;
-                        Vector3Int nextDir = list[i + 1].cellPosition - list[i].cellPosition;
+                        Vector3Int beforeDir = list[i].CellPosition - list[i - 1].CellPosition;
+                        Vector3Int nextDir = list[i + 1].CellPosition - list[i].CellPosition;
                         if (beforeDir != nextDir) //꺽인점에서 경로 기록
                         {
-                            pointArr[cornerIndex] = list[i].worldPosition;
+                            pointArr[cornerIndex] = list[i].WorldPosition;
                             cornerIndex++;
                         }
                     }
@@ -187,7 +187,7 @@ namespace DevLib.TileAstar
                     //시작점과 다른 목표지일 경우 마지막 포인트 추가.
                     if (list.Count > 1 && cornerIndex < pointArr.Length)
                     {
-                        pointArr[cornerIndex] = list[^1].worldPosition;
+                        pointArr[cornerIndex] = list[^1].WorldPosition;
                         cornerIndex++;
                     }
 
@@ -233,7 +233,7 @@ namespace DevLib.TileAstar
             int last = _rentedNodes.Count - 1;
             AstarNode node = _rentedNodes[last];
             _rentedNodes.RemoveAt(last);
-            node.parentNode = null;
+            node.ParentNode = null;
             _nodePool.Push(node);
         }
 

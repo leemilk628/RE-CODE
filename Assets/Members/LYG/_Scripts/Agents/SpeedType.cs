@@ -1,4 +1,4 @@
-﻿namespace Members.LYG._Scripts.Agents.Player
+﻿namespace Members.LYG._Scripts.Agents
 {
 
         public enum SpeedType

@@ -33,7 +33,6 @@ namespace Members.LYG._Scripts.Agents.Player
                 private void Update()
                 {
                         _stateMachine?.UpdateMachine();
-                        Debug.Log(_stateMachine.CurrentState);
                 }
 
                 private void FixedUpdate()

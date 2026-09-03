@@ -41,11 +41,8 @@ namespace Members.LYG._Scripts.CombatSystem.Health
                                 }
                                 else if (value > 0)
                                 {
-                                        if (value  > MaxHp)
-                                                _hp = MaxHp;
-                                        else
-                                                _hp = value;
-                                        
+                                        _hp = value  > MaxHp ? MaxHp : value;
+
                                         HandleOnHeal?.Invoke(value);
                                 }
                                 Debug.Log("HP: " + _hp);

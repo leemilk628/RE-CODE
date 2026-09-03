@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using DevLib.ModuleSystem;
+using UnityEngine;
 
 namespace Members.LYG._Scripts.CombatSystem.Damage
 {
-        public abstract class AbstractDamageCalculator
+        public abstract class AbstractDamageCalculator: MonoModule
         {
                 private float _lastDamage;
                 protected virtual float CalculateCriticalDamage(float damage, float critical, float criticalPercent)

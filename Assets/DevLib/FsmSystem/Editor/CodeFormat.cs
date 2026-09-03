@@ -1,8 +1,8 @@
 ﻿namespace DevLib.FsmSystem.Editor
 {
-    public class CodeFormat
+    public static class CodeFormat
     {
-        public static string EnumFormat = 
+        public static readonly string EnumFormat = 
 @"
 namespace {0}
 {{

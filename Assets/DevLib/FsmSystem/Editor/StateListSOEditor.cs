@@ -35,7 +35,7 @@ namespace DevLib.FsmSystem.Editor
             _targetData = target as StateListSO;
             if (_targetData != null && !string.IsNullOrEmpty(_targetData.generatePath))
             {
-                _generatePathLabel.text = FileUtil.GetProjectRelativePath(_targetData.generatePath);  //여기서 문제가 좀 있을꺼다.
+                _generatePathLabel.text = FileUtil.GetProjectRelativePath(_targetData.generatePath);  
                 _generatePath = _targetData.generatePath;
             }
 

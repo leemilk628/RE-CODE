@@ -8,7 +8,7 @@ namespace DevLib.FsmSystem.Runtime
     {
         public AbstractState CurrentState { get; private set; }
 
-        private Dictionary<int, AbstractState> _stateDict;
+        private readonly Dictionary<int, AbstractState> _stateDict;
 
         public StateMachine(GameObject owner, StateSO[] stateList)
         {
