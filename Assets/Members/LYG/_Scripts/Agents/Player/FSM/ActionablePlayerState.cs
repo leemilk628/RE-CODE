@@ -13,17 +13,24 @@ namespace Members.LYG._Scripts.Agents.Player.FSM
                 public override void Enter()
                 {
                         base.Enter();
-                        _player.PlayerInput.OnDashHandled += HandleDashKey;
+                        Player.PlayerInput.OnDashHandled += HandleDashKey;
+                        Player.PlayerInput.OnInteractHandled += HandleInteractKey;
                 }
 
                 public override void Exit()
                 {
-                        _player.PlayerInput.OnDashHandled -= HandleDashKey;
+                        Player.PlayerInput.OnDashHandled -= HandleDashKey;
+                        Player.PlayerInput.OnInteractHandled -= HandleInteractKey;
                 }
 
                 private void HandleDashKey()
                 {
-                         _player.ChangeState(PlayerState.DASH);
+                         Player.ChangeState(PlayerState.DASH);
+                }
+
+                private void HandleInteractKey()
+                {
+                        Player.Interact.Interact();
                 }
         }
 }

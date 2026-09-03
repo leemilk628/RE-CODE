@@ -4,13 +4,13 @@ namespace DevLib.FsmSystem.Runtime
 {
     public class AbstractState
     {
-        protected GameObject _owner;
-        protected StateSO _stateSO;
+        public GameObject Owner { get;private  set; }
+        public StateSO StateSO { get;private  set; }
 
-        public AbstractState(GameObject owner, StateSO stateData)
+        protected AbstractState(GameObject owner, StateSO stateData)
         {
-            _owner = owner;
-            _stateSO = stateData;
+            Owner = owner;
+            StateSO = stateData;
         }
         
         public virtual void Enter() {}

@@ -121,7 +121,9 @@ namespace Members.LYG._Scripts.Input
                 }
 
                 public void OnSprint(InputAction.CallbackContext context)
-                        => IsSprint = context.performed;
+                {
+                        IsSprint = context.ReadValueAsButton();
+                }
 
                 public void OnUse(InputAction.CallbackContext context) 
                 {

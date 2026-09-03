@@ -5,8 +5,8 @@ namespace Members.LYG._Scripts.Agents.Player.FSM
 {
         public class PlayerDashState : ActionablePlayerState
         {
-                private Vector2 direction;
-                private bool endDash = false;
+                private Vector2 _direction;
+                private bool _endDash = false;
                 
                 
                 public PlayerDashState(GameObject owner, StateSO stateData) : base(owner, stateData)
@@ -14,31 +14,32 @@ namespace Members.LYG._Scripts.Agents.Player.FSM
                 }
                 public override void Enter()
                 {
-                        endDash = false;
+                        _endDash = false;
                         
                         base.Enter();
                         
-                        _player.Mover.Dash();
-                        //_player.Mover.SetCanMove(false);
+                        Player.Mover.Dash(); 
+                        Player.Mover.SetCanMove(false);
                 }
 
                 protected override bool OnUpdate()
                 {
-                        Vector2 inputDirection = _player.PlayerInput.InputDirection;
-                        if(endDash)
+                        Player.Mover.OnDashEnd += SetEndDash;
+                        Vector2 inputDirection = Player.PlayerInput.InputDirection;
+                        if(_endDash)
                         {
                                 if (inputDirection.sqrMagnitude < MoveThreshold)
                                 {
-                                        _player.Mover.StopImmediately();
-                                        _player.ChangeState(PlayerState.IDLE);
-                                        _player.Mover.SetCanMove(true);
+                                        Player.Mover.StopImmediately();
+                                        Player.ChangeState(PlayerState.IDLE);
+                                        Player.Mover.SetCanMove(true);
                                         return false;
                                 }
                                 else if (inputDirection.sqrMagnitude > MoveThreshold)
                                 {
-                                        _player.Mover.StopImmediately();
-                                        _player.ChangeState(PlayerState.DASH);
-                                        _player.Mover.SetCanMove(true);
+                                        Player.Mover.StopImmediately();
+                                        Player.ChangeState(PlayerState.MOVE);
+                                        Player.Mover.SetCanMove(true);
                                         return false;
                                 }
                         }
@@ -47,7 +48,7 @@ namespace Members.LYG._Scripts.Agents.Player.FSM
 
                 private void SetEndDash()
                 {
-                        endDash = true;
+                        _endDash = true;
                 }
         }
 }

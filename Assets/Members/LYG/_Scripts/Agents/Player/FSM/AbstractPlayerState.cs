@@ -5,15 +5,14 @@ namespace Members.LYG._Scripts.Agents.Player.FSM
 {
         public abstract class AbstractPlayerState : AbstractState
         {
-                protected PlayerController _player;
+                protected readonly PlayerController Player;
         
-                protected const float MoveThreshold = 0.01f;
+                protected const float MoveThreshold = 0.0001f;
 
                 protected AbstractPlayerState(GameObject owner, StateSO stateData) : base(owner, stateData)
                 {
-                        _player = owner.GetComponent<PlayerController>();
-                        Debug.Assert(_player != null, "PlayerController is null. PlayerState should bew child of PlayerController");
-            
+                        Player = owner.GetComponent<PlayerController>();
+                        Debug.Assert(Player != null, "PlayerController is null. PlayerState should bew child of PlayerController");
                 }
         }
 }

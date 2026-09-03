@@ -1,4 +1,6 @@
 ﻿using DevLib.FsmSystem.Runtime;
+using Members.LYG._Scripts.Agents.Interactions;
+using Members.LYG._Scripts.Agents.Interactions.Player;
 using Members.LYG._Scripts.Agents.Player.FSM;
 using Members.LYG._Scripts.Input;
 using UnityEngine;
@@ -11,25 +13,28 @@ namespace Members.LYG._Scripts.Agents.Player
                 [SerializeField] private StateListSO playerStateList;
                 
                 private StateMachine _stateMachine;
+                public IInteract Interact { get; private set; }
 
                 protected override void InitializeModules()
                 {
                         base.InitializeModules();
+                        Interact = GetModule<IInteract>();
                         PlayerInput.SetEnable();
                         UnRegisterEvent();
                         RegisterEvent();
                         _stateMachine = new StateMachine(gameObject, playerStateList.states);
                 }
-
                 private void OnDestroy()
                 {
                         UnRegisterEvent();
+                        
                         PlayerInput.SetDisable();
                 }
                 
                 private void Update()
                 {
                         _stateMachine?.UpdateMachine();
+                        Debug.Log(_stateMachine.CurrentState);
                 }
 
                 private void FixedUpdate()

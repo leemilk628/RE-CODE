@@ -1,6 +1,6 @@
 ﻿namespace Members.LYG._Scripts.Agents
 {
-        public class GroundMover: AbstractMover
+        public class AgentMover: AbstractMover
         {
         }
 }

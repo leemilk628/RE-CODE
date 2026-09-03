@@ -3,24 +3,24 @@ using UnityEngine;
 
 namespace Members.LYG._Scripts.Agents.Player.FSM
 {
-        public class PlayerMoveState : ActionablePlayerState
+        public class PlayerSprintState: ActionablePlayerState
         {
-                public PlayerMoveState(GameObject owner, StateSO stateData) : base(owner, stateData)
+                public PlayerSprintState(GameObject owner, StateSO stateData) : base(owner, stateData)
                 {
                 }
 
                 public override void Enter()
                 {
                         base.Enter();
-                        Player.Mover.SetSpeed(SpeedType.Move);
+                        Player.Mover.SetSpeed(SpeedType.Sprint);
                 }
 
                 protected override bool OnUpdate()
                 {
                         Vector2 inputDirection = Player.PlayerInput.InputDirection;
-                        if (Player.PlayerInput.IsSprint && inputDirection.sqrMagnitude > MoveThreshold)
+                        if (!Player.PlayerInput.IsSprint && inputDirection.sqrMagnitude > MoveThreshold)
                         {
-                                Player.ChangeState(PlayerState.SPRINT);
+                                Player.ChangeState(PlayerState.MOVE);
                                 return false;
                         }
                         

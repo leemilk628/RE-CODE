@@ -11,10 +11,10 @@ namespace Members.LYG._Scripts.Agents.Player.FSM
 
                 protected override bool OnUpdate()
                 {
-                        Vector2 inputDirection = _player.PlayerInput.InputDirection;
+                        Vector2 inputDirection = Player.PlayerInput.InputDirection;
                         if (inputDirection.sqrMagnitude > MoveThreshold)
                         {
-                                _player.ChangeState(PlayerState.MOVE);
+                                Player.ChangeState(PlayerState.MOVE);
                                 return false;
                         }
                         return true;
