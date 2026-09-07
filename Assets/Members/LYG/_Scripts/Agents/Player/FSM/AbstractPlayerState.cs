@@ -14,5 +14,10 @@ namespace Members.LYG._Scripts.Agents.Player.FSM
                         Player = owner.GetComponent<PlayerController>();
                         Debug.Assert(Player != null, "PlayerController is null. PlayerState should bew child of PlayerController");
                 }
+                
+                public override void Enter()
+                {
+                        Player.Renderer.RenderClipIfNotPlaying(StateSO.animHash.HashValue);
+                }
         }
 }

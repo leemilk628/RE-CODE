@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Members.LYG._Scripts.Agents.Player.FSM
 {
-        public class PlayerDashState : AbstractPlayerState
+        public class PlayerDashState : ActionablePlayerState
         {
                 private Vector2 _direction;
                 private bool _endDash = false;
@@ -19,27 +19,25 @@ namespace Members.LYG._Scripts.Agents.Player.FSM
                         base.Enter();
                         
                         Player.Mover.Dash(); 
+                        Player.Mover.OnDashEnd += SetEndDash;
                         Player.Mover.SetCanMove(false);
                 }
 
                 protected override bool OnUpdate()
                 {
-                        Player.Mover.OnDashEnd += SetEndDash;
                         Vector2 inputDirection = Player.PlayerInput.InputDirection;
                         if(_endDash)
                         {
                                 if (inputDirection.sqrMagnitude < MoveThreshold)
                                 {
-                                        Player.Mover.StopImmediately();
-                                        Player.ChangeState(PlayerState.IDLE);
                                         Player.Mover.SetCanMove(true);
+                                        Player.ChangeState(PlayerState.IDLE);
                                         return false;
                                 }
                                 else if (inputDirection.sqrMagnitude > MoveThreshold)
                                 {
-                                        Player.Mover.StopImmediately();
-                                        Player.ChangeState(PlayerState.MOVE);
                                         Player.Mover.SetCanMove(true);
+                                        Player.ChangeState(PlayerState.MOVE);
                                         return false;
                                 }
                         }

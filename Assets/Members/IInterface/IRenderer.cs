@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Members.LYG._Scripts.Agents
+namespace Members.IInterface
 {
         public interface IRenderer
         {
@@ -9,5 +9,6 @@ namespace Members.LYG._Scripts.Agents
                 void SetDirection(Vector2 direction);
                 void RenderClip(int clipHash);
                 void RenderClipIfNotPlaying(int clipHash);
+                public void FlipX(Vector2 mouseDirection);
         }
 }

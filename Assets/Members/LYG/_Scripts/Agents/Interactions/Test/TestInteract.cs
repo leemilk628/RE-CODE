@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Members.IInterface;
+using UnityEngine;
 
 namespace Members.LYG._Scripts.Agents.Interactions.Test
 {

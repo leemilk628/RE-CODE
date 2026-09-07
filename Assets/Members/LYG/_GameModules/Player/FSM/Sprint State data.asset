@@ -15,4 +15,4 @@ MonoBehaviour:
   stateName: SPRINT
   className: Members.LYG._Scripts.Agents.Player.FSM.PlayerSprintState, Assembly-CSharp
   assetIndex: 3
-  animHash: {fileID: 0}
+  animHash: {fileID: 11400000, guid: f90db68d9e50dd34ea5acfab263b8871, type: 2}

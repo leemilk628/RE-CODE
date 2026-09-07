@@ -1,8 +1,8 @@
 ﻿using System;
-using Members.LYG._Scripts.Agents.Player;
+using Members.LYG._Scripts.Agents;
 using UnityEngine;
 
-namespace Members.LYG._Scripts.Agents
+namespace Members.IInterface
 {
         public interface IMover
         {

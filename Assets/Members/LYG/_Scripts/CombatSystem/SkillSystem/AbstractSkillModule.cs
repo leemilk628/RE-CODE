@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DevLib.ModuleSystem;
+using Members.IInterface;
 using UnityEngine;
 
 namespace Members.LYG._Scripts.CombatSystem.SkillSystem

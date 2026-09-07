@@ -37,7 +37,8 @@ namespace Members.LYG._Scripts.Agents.Player.FSM
 
                 public override void Exit()
                 {
-                        Player.Mover.Stop();
+                        if (!Player.PlayerInput.IsSprint)
+                                Player.Mover.Stop();
                         base.Exit();
                 }
         }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Members.LYG._Scripts.Agents
+namespace Members.IInterface
 {
         public interface IAnimateTrigger
         {

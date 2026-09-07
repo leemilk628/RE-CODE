@@ -2,7 +2,7 @@
 using DevLib.ModuleSystem;
 using UnityEngine;
 
-namespace Members.LYG._Scripts.CombatSystem.SkillSystem
+namespace Members.IInterface
 {
         public interface ISkillModule
         {

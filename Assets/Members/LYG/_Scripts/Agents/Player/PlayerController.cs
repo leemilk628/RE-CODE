@@ -1,6 +1,8 @@
 ﻿using DevLib.FsmSystem.Runtime;
+using Members.IInterface;
 using Members.LYG._Scripts.Agents.Interactions.Player;
 using Members.LYG._Scripts.Agents.Player.FSM;
+using Members.LYG._Scripts.CombatSystem.Damage;
 using Members.LYG._Scripts.Input;
 using UnityEngine;
 
@@ -33,6 +35,7 @@ namespace Members.LYG._Scripts.Agents.Player
                 private void Update()
                 {
                         _stateMachine?.UpdateMachine();
+                        Renderer.FlipX(PlayerInput.MousePosition - (Vector2)transform.position);
                 }
 
                 private void FixedUpdate()

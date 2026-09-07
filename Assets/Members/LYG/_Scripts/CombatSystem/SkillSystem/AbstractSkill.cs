@@ -1,4 +1,5 @@
 ﻿using System;
+using Members.IInterface;
 using UnityEngine;
 
 namespace Members.LYG._Scripts.CombatSystem.SkillSystem

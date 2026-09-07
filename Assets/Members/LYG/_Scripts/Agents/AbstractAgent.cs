@@ -1,4 +1,5 @@
 ﻿using DevLib.ModuleSystem;
+using Members.IInterface;
 using Members.LYG._Scripts.CombatSystem.Damage;
 
 namespace Members.LYG._Scripts.Agents
@@ -17,7 +18,7 @@ namespace Members.LYG._Scripts.Agents
                         Trigger =  GetModule<IAnimateTrigger>();
                 }
 
-                public void ApplyDamage(DamageData damageData)
+                public virtual void ApplyDamage(DamageData damageData)
                 {
                         
                 }

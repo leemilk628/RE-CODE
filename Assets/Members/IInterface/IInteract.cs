@@ -1,4 +1,4 @@
-﻿namespace Members.LYG._Scripts.Agents.Interactions.Player
+﻿namespace Members.IInterface
 {
         public interface IInteract
         {

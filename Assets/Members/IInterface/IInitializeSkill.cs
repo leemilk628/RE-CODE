@@ -1,4 +1,6 @@
-﻿namespace Members.LYG._Scripts.CombatSystem.SkillSystem
+﻿using Members.LYG._Scripts.CombatSystem.SkillSystem;
+
+namespace Members.IInterface
 {
         public interface IInitializeSkill
         {

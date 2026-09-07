@@ -1,5 +1,6 @@
 ﻿using System;
 using DevLib.ModuleSystem;
+using Members.IInterface;
 using Members.LYG._Scripts.Agents.Player;
 using UnityEngine;
 

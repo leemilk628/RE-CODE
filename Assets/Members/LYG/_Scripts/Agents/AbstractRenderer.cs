@@ -1,5 +1,6 @@
 ﻿using System;
 using DevLib.ModuleSystem;
+using Members.IInterface;
 using UnityEngine;
 
 namespace Members.LYG._Scripts.Agents
@@ -29,6 +30,19 @@ namespace Members.LYG._Scripts.Agents
                 {
                         if (Animator.GetCurrentAnimatorStateInfo(0).shortNameHash != clipHash)
                                 RenderClip(clipHash);
+                }
+
+                public void FlipX(Vector2 mouseDirection)
+                {
+                        if (mouseDirection == Vector2.zero) return;
+                        if (mouseDirection.x < -0.0001f)
+                        {
+                                transform.localEulerAngles = new Vector3(0,180,0);
+                        }
+                        else if (mouseDirection.x > 0.0001f)
+                        {
+                                transform.localEulerAngles = new Vector3(0,0,0);
+                        }
                 }
                 
                 public void AfterInit()

@@ -15,4 +15,4 @@ MonoBehaviour:
   stateName: DASH
   className: Members.LYG._Scripts.Agents.Player.FSM.PlayerDashState, Assembly-CSharp
   assetIndex: 2
-  animHash: {fileID: 0}
+  animHash: {fileID: 11400000, guid: 54d80b9c6eadf0e41bcc8fab75122494, type: 2}

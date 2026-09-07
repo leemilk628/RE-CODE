@@ -15,4 +15,4 @@ MonoBehaviour:
   stateName: IDLE
   className: Members.LYG._Scripts.Agents.Player.FSM.PlayerIdleState, Assembly-CSharp
   assetIndex: 0
-  animHash: {fileID: 0}
+  animHash: {fileID: 11400000, guid: 6ba5d22f51a7edf4c9982419523f7f25, type: 2}

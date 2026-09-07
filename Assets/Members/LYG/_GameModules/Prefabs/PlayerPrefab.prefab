@@ -123,6 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 443532586445630246}
+  - component: {fileID: 2749044252057236176}
   - component: {fileID: 8039992707498276784}
   - component: {fileID: 3765663678672642399}
   m_Layer: 0
@@ -147,6 +148,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3747671460452474391}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2749044252057236176
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2246351131470338542}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b9f6b9209b0c2fc4887dca409c9208dc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &8039992707498276784
 SpriteRenderer:
   serializedVersion: 2
@@ -196,7 +219,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 5088316998373936774, guid: 1ee60af9cd550f54aae4a47b6028e053, type: 3}
+  m_Sprite: {fileID: -5115618752126089108, guid: 4bdd1ce164f492f41821b2d652bc4f3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -483,9 +506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f616184c04af45c380b33543dfb880d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Members.LYG._Scripts.Agents.GroundMover
-  <Acceleration>k__BackingField: 40
-  <Deceleration>k__BackingField: 15
+  <Acceleration>k__BackingField: 30
+  <Deceleration>k__BackingField: 10
   <MoveSpeed>k__BackingField: 5
   <SprintSpeed>k__BackingField: 10
-  <DashSpeed>k__BackingField: 20
-  <DashDuration>k__BackingField: 0.2
+  <DashSpeed>k__BackingField: 10
+  <DashDuration>k__BackingField: 0.4

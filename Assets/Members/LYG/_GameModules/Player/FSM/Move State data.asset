@@ -15,4 +15,4 @@ MonoBehaviour:
   stateName: MOVE
   className: Members.LYG._Scripts.Agents.Player.FSM.PlayerMoveState, Assembly-CSharp
   assetIndex: 1
-  animHash: {fileID: 0}
+  animHash: {fileID: 11400000, guid: b05fdbac804b4a84dbc0dc156c2859dc, type: 2}

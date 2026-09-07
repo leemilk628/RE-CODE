@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Members.LYG._Scripts.CombatSystem.Health
+namespace Members.IInterface
 {
         public interface IHealthComponent
         {

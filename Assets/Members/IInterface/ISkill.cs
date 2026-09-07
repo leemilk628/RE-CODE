@@ -1,7 +1,8 @@
 ﻿using System;
+using Members.LYG._Scripts.CombatSystem.SkillSystem;
 using UnityEngine;
 
-namespace Members.LYG._Scripts.CombatSystem.SkillSystem
+namespace Members.IInterface
 {
         public interface ISkill
         {
